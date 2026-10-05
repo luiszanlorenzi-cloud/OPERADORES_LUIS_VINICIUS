@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Comparação de Operadores</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        td {
+            padding: 5px;
+            border: 1px solid #ccc;
+        }
+        input[type="text"] {
+            width: 150px;
+        }
+    </style>
+</head>
+<body>
+
+    <table>
+        <!-- Linha 1: Igual (==) -->
+        <tr>
+            <td><input type="text" id="v1_eq"></td>
+            <td>==</td>
+            <td><input type="text" id="v2_eq"></td>
+            <td><button onclick="comparar('eq', '==')">Comparar</button></td>
+        </tr>
+        <!-- Linha 2: Diferente (!=) -->
+        <tr>
+            <td><input type="text" id="v1_neq"></td>
+            <td>!=</td>
+            <td><input type="text" id="v2_neq"></td>
+            <td><button onclick="comparar('neq', '!=')">Comparar</button></td>
+        </tr>
+        <!-- Linha 3: Maior que (>) -->
+        <tr>
+            <td><input type="text" id="v1_gt"></td>
+            <td>&gt;</td>
+            <td><input type="text" id="v2_gt"></td>
+            <td><button onclick="comparar('gt', '>')">Comparar</button></td>
+        </tr>
+        <!-- Linha 4: Menor que (<) -->
+        <tr>
+            <td><input type="text" id="v1_lt"></td>
+            <td>&lt;</td>
+            <td><input type="text" id="v2_lt"></td>
+            <td><button onclick="comparar('lt', '<')">Comparar</button></td>
+        </tr>
+        <!-- Linha 5: Maior ou igual (>=) -->
+        <tr>
+            <td><input type="text" id="v1_gte"></td>
+            <td>&gt;=</td>
+            <td><input type="text" id="v2_gte"></td>
+            <td><button onclick="comparar('gte', '>=')">Comparar</button></td>
+        </tr>
+        <!-- Linha 6: Menor ou igual (<=) -->
+        <tr>
+            <td><input type="text" id="v1_lte"></td>
+            <td>&lt;=</td>
+            <td><input type="text" id="v2_lte"></td>
+            <td><button onclick="comparar('lte', '<=')">Comparar</button></td>
+        </tr>
+    </table>
+
+    <script>
+        function comparar(id, operador) {
+            let val1 = document.getElementById('v1_' + id).value;
+            let val2 = document.getElementById('v2_' + id).value;
+            
+            // Converte para número se for um valor numérico
+            let num1 = isNaN(val1) || val1 === '' ? val1 : Number(val1);
+            let num2 = isNaN(val2) || val2 === '' ? val2 : Number(val2);
+
+            let resultado;
+            switch(operador) {
+                case '==': resultado = (num1 == num2); break;
+                case '!=': resultado = (num1 != num2); break;
+                case '>':  resultado = (num1 > num2); break;
+                case '<':  resultado = (num1 < num2); break;
+                case '>=': resultado = (num1 >= num2); break;
+                case '<=': resultado = (num1 <= num2); break;
+            }
+
+            alert("Resultado: " + resultado);
+        }
+    </script>
+
+</body>
+</html>
